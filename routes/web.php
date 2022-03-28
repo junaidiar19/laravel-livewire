@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\CategoryIndex;
+use App\Http\Livewire\CourseDetail;
+use App\Http\Livewire\CourseIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', CourseIndex::class)->name('index');
+Route::get('/course/{id}', CourseDetail::class)->name('course.detail');
+
+Route::get('/category', CategoryIndex::class)->name('category');

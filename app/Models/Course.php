@@ -14,4 +14,17 @@ class Course extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeFilter($query, $params)
+    {
+        if (@$params['category']) {
+            $query->whereHas('category', function ($q) use ($params) {
+                $q->where('slug', $params['category']);
+            });
+        }
+
+        if (@$params['search']) {
+            $query->where('name', 'like', '%' . $params['search'] . '%');
+        }
+    }
 }
