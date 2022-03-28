@@ -1,4 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <h5>Hello</h5>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <livewire:course-index />
+    </div>
+  </div>  
 @endsection
